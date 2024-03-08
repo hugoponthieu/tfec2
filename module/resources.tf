@@ -1,8 +1,8 @@
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.amazon.id
-  instance_type = "t3.nano"
-
+resource "aws_instance" "hogux" {
+  ami                  = data.aws_ami.amazon.id
+  instance_type        = "t3.nano"
+  iam_instance_profile = var.role
   tags = {
-    Name = "HelloWorld"
+    Name = var.ec2_name
   }
 }
