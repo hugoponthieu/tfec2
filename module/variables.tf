@@ -1,4 +1,8 @@
 variable "role" {
-  type = string
+  type    = string
   default = "EC2InstanceRole"
+}
+variable "ec2_name" {
+  type    = string
+  default = "amazonHogux"
 }
