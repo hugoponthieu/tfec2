@@ -1,6 +1,6 @@
 variable "role" {
   type    = string
-  default = "EC2InstanceRole"
+  default = "EMR_EC2_DefaultRole"
 }
 variable "ec2_name" {
   type    = string
