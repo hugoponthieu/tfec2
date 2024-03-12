@@ -4,8 +4,6 @@ resource "aws_iam_role" "iam_for_lambda" {
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
-
-
 resource "aws_lambda_function" "test_lambda" {
   filename      = "handler.zip"
   function_name = "handler"
@@ -19,6 +17,6 @@ resource "aws_lambda_function" "test_lambda" {
   environment {
     variables = {
       foo = "bar"
-    }
+    } 
   }
 }

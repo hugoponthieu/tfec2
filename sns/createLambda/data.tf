@@ -14,5 +14,5 @@ data "aws_iam_policy_document" "assume_role" {
 data "archive_file" "lambda" {
   type        = "zip"
   source_file = "handler.py"
-  output_path = "lambda_function_payload.zip"
+  output_path = "handler.zip"
 }

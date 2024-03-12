@@ -1,7 +1,7 @@
 import json
 import os
 import boto3
-def lambda_handler(event, context):
+def handler(event, context):
     client = boto3.client('sns')
     lambdaArn = os.environ['LAMBDA_ARN']
     response = client.publish(
