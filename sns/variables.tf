@@ -19,7 +19,17 @@ variable "sended_notification" {
   default = "This SNS file work pretty well"
 }
 
-variable "lambda_role_arn" {
+#Erreur lors de l'éxécution car le string d'un ARN contient des 
+#caractères non supporter
+# variable "lambda_role_arn" {
+#   type    = string
+#   default = "arn:aws:iam::767397869331:instance-profile/LabInstanceProfile"
+# }
+
+#Je passe donc le nom du rôle voulu 
+#et l'ARN sera resolve dans une data source
+
+variable "lambda_role_name" {
   type    = string
-  default = "arn:aws:iam::767397869331:instance-profile/LabInstanceProfile"
+  default = "LabRole"
 }
