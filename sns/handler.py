@@ -3,11 +3,12 @@ import os
 import boto3
 def handler(event, context):
     client = boto3.client('sns')
+    message = os.environ['LAMBDA_MESSAGE']
     lambdaArn = os.environ['LAMBDA_ARN']
     response = client.publish(
     TopicArn=lambdaArn,
-    Subject='POUETTE',
-    Message='pouette',
+    Subject='This is the best topic',
+    Message=message,
 )
     return {
         'statusCode': 200,

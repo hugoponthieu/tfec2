@@ -10,7 +10,8 @@ resource "aws_lambda_function" "test_lambda" {
 
   environment {
     variables = {
-      LAMBDA_ARN = var.sns_arn
+      LAMBDA_ARN     = var.sns_arn
+      LAMBDA_MESSAGE = var.sended_notification
     }
   }
 }
