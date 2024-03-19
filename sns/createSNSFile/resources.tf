@@ -1,5 +1,5 @@
 resource "aws_sns_topic" "notifier" {
-  name = "pouetteNotifier"
+  name = var.sns_name
 }
 
 resource "aws_sns_topic_subscription" "add_email" {

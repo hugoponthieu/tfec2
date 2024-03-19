@@ -18,3 +18,8 @@ variable "sended_notification" {
   type    = string
   default = "This SNS file work pretty well"
 }
+
+variable "lambda_role_arn" {
+  type    = string
+  default = "arn:aws:iam::767397869331:instance-profile/LabInstanceProfile"
+}

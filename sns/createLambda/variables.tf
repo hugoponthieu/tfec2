@@ -9,3 +9,7 @@ variable "sns_arn" {
 variable "sended_notification" {
   type = string
 }
+
+variable "lambda_role_arn" {
+  type = string
+}
