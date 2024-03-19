@@ -10,4 +10,5 @@ variable "ec2_name" {
 variable "instance_type" {
   type    = string
   default = "t3.nano"
+  
 }
