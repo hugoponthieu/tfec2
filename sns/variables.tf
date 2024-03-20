@@ -20,7 +20,7 @@ variable "sended_notification" {
 }
 
 #Erreur lors de l'éxécution car le string d'un ARN contient des 
-#caractères non supporter
+#caractères non supporté
 # variable "lambda_role_arn" {
 #   type    = string
 #   default = "arn:aws:iam::767397869331:instance-profile/LabInstanceProfile"
