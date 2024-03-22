@@ -10,3 +10,7 @@ module "lambda" {
   lambda_name = var.lambda_name
   lambda_role_name = var.lambda_role_name
 }
+module "event_rule" {
+  source = "./event_rule"
+  lambda_arn = module.lambda.lambda_arn
+}
