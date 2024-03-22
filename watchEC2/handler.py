@@ -1,24 +1,24 @@
 import boto3
 import datetime
 import os
+import json
 ec2 = boto3.client('ec2')
 sns = boto3.client('sns')
 
 def handler(event, context):
-    instance_id = event['detail']['instance-id']
-    state = event['detail']['state']
+    running_instances = ec2.describe_instances(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
+    times=[]
+    for instance in running_instances['Reservations']:
+        times.append(int(instance['Instances'][0]['LaunchTime'].timestamp()))
+    now = int(datetime.datetime.now().timestamp())
+    count= 0
+    for t in times:
+        if now-t < 30:
+            count+=1
+    if count>2 : 
+        sns.publish(
+                TopicArn=os.environ['LAMBDA_ARN'],
+                Message=os.environ['LAMBDA_MESSAGE']
+            )
 
-    if state == 'running':
-        launch_time = event['detail']['launch-time']
-        current_time = datetime.datetime.utcnow()
-        time_diff = current_time - launch_time
-        
-        if time_diff.total_seconds() <= 30:
-            running_instances = ec2.describe_instances(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
-            num_running_instances = sum(len(reservations['Instances']) for reservations in running_instances['Reservations'])
-
-            if num_running_instances > 2:
-                sns.publish(
-                    TopicArn=os.environ['LAMBDA_ARN'],
-                    Message=os.environ['LAMBDA_MESSAGE']
-                )
+test = str(2)
