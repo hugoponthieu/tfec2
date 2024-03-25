@@ -10,6 +10,6 @@ resource "aws_cloudwatch_event_rule" "console" {
 }
 
 resource "aws_cloudwatch_event_target" "lambda" {
-  rule = aws_cloudwatch_event_rule.console.arn
+  rule = aws_cloudwatch_event_rule.console.name
   arn  = var.lambda_arn
 }
