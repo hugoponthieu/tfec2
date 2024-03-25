@@ -1,4 +1,4 @@
 variable "lambda_name" {
-  type = string
+  type    = string
   default = "notifyEC2"
 }

@@ -8,7 +8,7 @@ def handler(event, context):
     response = client.publish(
     TopicArn=lambdaArn,
     Subject='This is the best topic',
-    Message=str(event),
+    Message=message,
 )
     return {
         'statusCode': 200,

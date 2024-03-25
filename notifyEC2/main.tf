@@ -9,7 +9,7 @@ module "lambda" {
   lambda_name         = var.lambda_name
   lambda_role_name    = "LabRole"
   sns_arn             = module.sns.sns_arn_out
-  sended_notification = "notif"
+  sended_notification = "A new ec2 has been launched"
 }
 
 module "eventRule" {
